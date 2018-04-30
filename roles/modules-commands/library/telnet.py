@@ -22,6 +22,7 @@ options:
     description:
       - List of commands to be executed in the telnet session.
     required: True
+    aliases: ['commands']
   host:
     description:
         - The host/target on which to execute the command
@@ -48,6 +49,16 @@ options:
       - List of prompts expected before sending next command
     required: False
     default: ['$']
+  login_prompt:
+    description:
+      - Login or username prompt to expect
+    required: False
+    default: 'login: '
+  password_prompt:
+    description:
+      - Login or username prompt to expect
+    required: False
+    default: 'Password: '
   pause:
     description:
         - Seconds to pause between each command issued

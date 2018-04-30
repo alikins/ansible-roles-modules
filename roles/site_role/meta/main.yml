@@ -35,6 +35,7 @@ dependencies:
   - role: plugins-action-lots
   - role: plugins-action-network
   - role: plugins-action-win
+  - role: module_utils-core
   - role: modules-files
   - role: modules-commands
   - role: modules-packaging
