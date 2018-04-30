@@ -3,7 +3,7 @@
   hosts: local_test
   roles:
     # files, commands, source-control
-    - site_role
+    - site_role_subset
   gather_facts: false
   vars:
     baz: "BAZZZZZZZZZZZZZZZ"
@@ -13,6 +13,11 @@
         name: alias.ci
         scope: global
       register: git_config_result
+
+    - name: verify we find pip from packagaging-language
+      pip:
+        name: jinja2
+        state: present
 
       #    - name: try to find git_config2 in first play
       # git_config2:
@@ -27,17 +32,6 @@
         #    - name: trying set_fact2
         #      set_fact2:
         #        some_var_2: 'blippy'
-
-    - name: trying overriddent getent
-      getent:
-        database: group
-        key: nobody
-        split: ':'
-      register: getent_result
-
-    - name: show getent result
-      debug:
-        var: getent_result
 
 
 - name: the second second play

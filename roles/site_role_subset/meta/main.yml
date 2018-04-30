@@ -33,4 +33,5 @@ dependencies:
   - role: modules-commands
   - role: modules-source_control
   - role: modules-utilities
+  - role: modules-packaging
     # - role: modules-system
