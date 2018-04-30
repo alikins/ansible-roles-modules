@@ -40,7 +40,7 @@ local_ssh
 [local_test]
 # local_test_[0:10]
 localhost
-# local_ssh
+local_ssh
 #local_test_[0:1]
 
 [raleigh]

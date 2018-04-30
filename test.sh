@@ -1,3 +1,3 @@
 #!/bin/bash
 
-ansible-playbook -i hosts -vvvv test_roles.yml
+ansible-playbook -i hosts -vvvvv test_roles.yml

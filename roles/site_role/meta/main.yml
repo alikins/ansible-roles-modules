@@ -29,6 +29,7 @@ galaxy_info:
 
     # TODO: add deps to category roles
 dependencies:
+  - role: plugins-connection
   - role: modules-files
   - role: modules-commands
   - role: modules-packaging
