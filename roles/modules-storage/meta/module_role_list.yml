@@ -1,0 +1,5 @@
+  - role: modules-storage
+  - role: modules-storage-infinidat
+  - role: modules-storage-netapp
+  - role: modules-storage-purestorage
+  - role: modules-storage-zfs

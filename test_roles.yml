@@ -1,0 +1,75 @@
+---
+- name: The first play
+  hosts: local_test
+  roles:
+    - site_role
+  gather_facts: false
+  vars:
+    blorp:
+      default:
+        whatever: "This is arbitrary task name with a default set"
+    blip: foobar
+    baz: "BAZZZZZZZZZZZZZZZ"
+  tasks:
+    - name: try to find git_config in first play
+      git_config:
+        name: alias.ci
+        scope: global
+      register: git_config_result
+
+      #    - name: try to find git_config2 in first play
+      # git_config2:
+      #  name: alias.ci
+      #  scope: global
+      # register: git_config2_result
+
+    - name: show git_config result
+      debug:
+        var: git_config_result
+
+        #    - name: trying set_fact2
+        #      set_fact2:
+        #        some_var_2: 'blippy'
+
+    - name: trying overriddent getent
+      getent:
+        database: group
+        key: nobody
+        split: ':'
+      register: getent_result
+
+    - name: show getent result
+      debug:
+        var: getent_result
+
+
+- name: the second second play
+  hosts: local_test
+  tags:
+    - the_second_second_play_tag
+    - blippy
+    - baz
+  gather_facts: false
+  tasks:
+    - name: release
+      shell: cat /etc/os-release
+      register: release_result
+
+    - debug:
+        var: release_result.cmd
+
+        #    - git_config2:
+        # name: alias.ci
+        # scope: global
+        # register: git_config_result
+        # when: false
+
+        #   - name: show git_config result
+        # debug:
+        #  var: git_config_result
+        # when: false
+
+    - synchronize:
+        src: /proc/self/status
+        dest: /tmp/some_path/status
+      when: true

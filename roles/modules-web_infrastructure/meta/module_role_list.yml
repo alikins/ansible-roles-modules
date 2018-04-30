@@ -1,0 +1,2 @@
+  - role: modules-web_infrastructure
+  - role: modules-web_infrastructure-ansible_tower

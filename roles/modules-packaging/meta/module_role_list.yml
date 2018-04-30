@@ -1,0 +1,3 @@
+  - role: modules-packaging
+  - role: modules-packaging-language
+  - role: modules-packaging-os

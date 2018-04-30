@@ -1,0 +1,5 @@
+  - role: modules-network-ios
+  - role: modules-network-iosxr
+  - role: modules-network-asa
+  - role: modules-network-aci
+  - role: modules-network-nxos
